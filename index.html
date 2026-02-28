@@ -20,6 +20,64 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
+        /* Twinkling Stars Background */
+        .stars-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: var(--opacity);
+                transform: scale(var(--scale));
+            }
+        }
+
+        /* Moving Space Effect */
+        @keyframes float-space {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-30px) translateX(20px) rotate(120deg);
+            }
+
+            66% {
+                transform: translateY(10px) translateX(-15px) rotate(240deg);
+            }
+
+            100% {
+                transform: translateY(0) translateX(0) rotate(360deg);
+            }
+        }
+
+        .space-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float-space var(--duration) ease-in-out infinite;
+        }
+
         /* 3D Card Effect */
         .card-3d {
             transform-style: preserve-3d;
@@ -98,14 +156,13 @@
 
 <body class="bg-[#0a0c0f] text-slate-200 overflow-x-hidden">
 
-    <!-- Ambient Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-gradient-radial opacity-60"></div>
-        <div class="absolute inset-0" style="background: 
-            radial-gradient(ellipse 60% 50% at 20% 30%, rgba(255, 153, 0, 0.06) 0%, transparent 70%),
-            radial-gradient(ellipse 50% 40% at 80% 70%, rgba(255, 204, 51, 0.05) 0%, transparent 70%),
-            radial-gradient(ellipse 40% 60% at 50% 50%, rgba(255, 120, 0, 0.03) 0%, transparent 70%);">
-        </div>
+    <!-- Twinkling Stars Background -->
+    <div class="stars-container">
+        <!-- Space Orbs -->
+        <div class="space-orb w-[500px] h-[500px] bg-orange-500/10 -top-20 -left-20" style="--duration: 20s;"></div>
+        <div class="space-orb w-[400px] h-[400px] bg-yellow-400/10 top-1/4 right-10" style="--duration: 25s;"></div>
+        <div class="space-orb w-[450px] h-[450px] bg-amber-500/10 bottom-10 left-1/3" style="--duration: 22s;"></div>
+        <div class="space-orb w-[350px] h-[350px] bg-orange-300/10 top-2/3 right-1/4" style="--duration: 18s;"></div>
     </div>
 
     <!-- Hero Section -->
@@ -118,7 +175,7 @@
 
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-50 leading-tight mb-5 animate-fadeUp"
                 style="animation-delay: 0.2s; letter-spacing: -0.02em;">
-                Transform Content with <span class="text-[#ffcc33]">EvoContent AI</span>
+                Transform Content with <br><span class="text-[#ffcc33]">EvoContent AI</span>
             </h1>
 
             <p class="text-lg text-slate-400 italic mb-6 animate-fadeUp" style="animation-delay: 0.4s;">
@@ -132,7 +189,7 @@
 
             <button
                 class="inline-block bg-gradient-to-br from-[#ff9900] to-[#ffcc33] text-[#0a0c0f] font-semibold text-base px-8 py-3.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,153,0,0.4)] shadow-[0_4px_20px_rgba(255,153,0,0.3)] animate-fadeUp"
-                style="animation-delay: 0.8s;">
+                style="animation-delay: 0.8s;" onclick="window.location.href='upload.html'">
                 Get Started
             </button>
 
@@ -389,6 +446,28 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Generate twinkling stars
+        function createStars() {
+            const container = document.querySelector('.stars-container');
+            const colors = ['#ff9900', '#ffcc33', '#ffffff', '#ffd700', '#ffb347', '#ffa500', '#87ceeb', '#ff69b4', '#9370db', '#00ced1', '#ff6347', '#32cd32'];
+            const starCount = 133;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+                star.style.setProperty('--opacity', Math.random() * 0.8 + 0.2);
+                star.style.setProperty('--scale', Math.random() * 2 + 1);
+                star.style.background = colors[Math.floor(Math.random() * colors.length)];
+                star.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(star);
+            }
+        }
+
+        createStars();
     </script>
 </body>
 
