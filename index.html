@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvoContent AI - AWS Hackathon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* 3D Card Effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .card-3d:hover {
+            transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Fade Up Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeUp {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        /* Gradient Shift */
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* 3D Perspective Container */
+        .perspective-container {
+            perspective: 1000px;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-[#0a0c0f] text-slate-200 overflow-x-hidden">
+
+    <!-- Ambient Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-radial opacity-60"></div>
+        <div class="absolute inset-0" style="background: 
+            radial-gradient(ellipse 60% 50% at 20% 30%, rgba(255, 153, 0, 0.06) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 40% at 80% 70%, rgba(255, 204, 51, 0.05) 0%, transparent 70%),
+            radial-gradient(ellipse 40% 60% at 50% 50%, rgba(255, 120, 0, 0.03) 0%, transparent 70%);">
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 text-center px-6 pt-24 pb-20">
+        <div class="max-w-6xl mx-auto">
+            <div
+                class="inline-block font-mono text-[11px] font-medium tracking-[2.5px] uppercase text-[#ffcc33] bg-[#ffcc33]/10 border border-[#ffcc33]/25 px-4 py-1.5 rounded-full mb-7 animate-fadeUp">
+                AWS AI for Bharat Hackathon
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-50 leading-tight mb-5 animate-fadeUp"
+                style="animation-delay: 0.2s; letter-spacing: -0.02em;">
+                Transform Content with <span class="text-[#ffcc33]">EvoContent AI</span>
+            </h1>
+
+            <p class="text-lg text-slate-400 italic mb-6 animate-fadeUp" style="animation-delay: 0.4s;">
+                Intelligent Content Evolution Platform
+            </p>
+
+            <p class="text-base text-slate-400 max-w-3xl mx-auto mb-10 animate-fadeUp" style="animation-delay: 0.6s;">
+                Harness the power of AWS AI services to automatically generate, optimize, and evolve your content across
+                multiple formats and languages.
+            </p>
+
+            <button
+                class="inline-block bg-gradient-to-br from-[#ff9900] to-[#ffcc33] text-[#0a0c0f] font-semibold text-base px-8 py-3.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,153,0,0.4)] shadow-[0_4px_20px_rgba(255,153,0,0.3)] animate-fadeUp"
+                style="animation-delay: 0.8s;">
+                Get Started
+            </button>
+
+            <!-- 3D Floating Illustration -->
+            <div class="mt-16 perspective-container">
+                <div class="float-animation mx-auto w-64 h-64 md:w-80 md:h-80">
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <!-- AI Brain Illustration -->
+                        <defs>
+                            <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff9900;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ffcc33;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="200" cy="200" r="120" fill="url(#brainGrad)" opacity="0.1" />
+                        <path
+                            d="M 200 100 Q 250 120 260 160 Q 270 200 250 240 Q 230 270 200 280 Q 170 270 150 240 Q 130 200 140 160 Q 150 120 200 100 Z"
+                            fill="url(#brainGrad)" opacity="0.8" />
+                        <circle cx="180" cy="180" r="8" fill="#0a0c0f" />
+                        <circle cx="220" cy="180" r="8" fill="#0a0c0f" />
+                        <path d="M 170 220 Q 200 230 230 220" stroke="#0a0c0f" stroke-width="4" fill="none"
+                            stroke-linecap="round" />
+                        <!-- Neural Network Lines -->
+                        <line x1="200" y1="100" x2="200" y2="60" stroke="#ffcc33" stroke-width="2" opacity="0.6" />
+                        <line x1="260" y1="160" x2="300" y2="140" stroke="#ffcc33" stroke-width="2" opacity="0.6" />
+                        <line x1="250" y1="240" x2="290" y2="260" stroke="#ffcc33" stroke-width="2" opacity="0.6" />
+                        <line x1="140" y1="160" x2="100" y2="140" stroke="#ffcc33" stroke-width="2" opacity="0.6" />
+                        <circle cx="200" cy="60" r="6" fill="#ffcc33" />
+                        <circle cx="300" cy="140" r="6" fill="#ffcc33" />
+                        <circle cx="290" cy="260" r="6" fill="#ffcc33" />
+                        <circle cx="100" cy="140" r="6" fill="#ffcc33" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="relative z-10 py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-semibold text-slate-50 mb-4" style="letter-spacing: -0.02em;">
+                    How It Works
+                </h2>
+                <p class="text-base text-slate-500 max-w-2xl mx-auto">
+                    Our intelligent workflow transforms your content through AI-powered processing
+                </p>
+            </div>
+
+            <!-- Workflow Steps -->
+            <div class="relative">
+                <!-- Center Spine -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 hidden md:block"
+                    style="background: linear-gradient(to bottom, transparent 0%, rgba(255, 153, 0, 0.15) 5%, #ff9900 30%, #ffcc33 50%, #ff9900 70%, rgba(255, 153, 0, 0.15) 95%, transparent 100%);">
+                </div>
+
+                <!-- Step 1 -->
+                <div
+                    class="reveal mb-24 md:mb-32 flex flex-col md:flex-row items-center md:justify-end md:pr-[calc(50%+50px)]">
+                    <div
+                        class="card-3d w-full max-w-sm bg-white/[0.04] border border-[#ffcc33]/20 rounded-2xl p-7 backdrop-blur-sm relative hover:border-[#ffcc33]/40 hover:shadow-[0_8px_40px_rgba(255,153,0,0.1)]">
+                        <span
+                            class="absolute -top-3 left-5 font-mono text-[10px] font-medium tracking-wider text-[#ff9900] bg-[#ff9900]/10 border border-[#ff9900]/25 px-2.5 py-1 rounded-full">
+                            STEP 01
+                        </span>
+                        <div
+                            class="absolute left-1/2 md:left-auto md:right-0 top-1/2 -translate-y-1/2 md:translate-x-[calc(50%+160px+50px)] w-3.5 h-3.5 rounded-full bg-[#ffcc33] border-[3px] border-[#0a0c0f] shadow-[0_0_10px_rgba(255,204,51,0.5)] hidden md:block">
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-50 mt-1.5" style="letter-spacing: -0.3px;">
+                            Content Input
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                            Upload your raw content in any format - text, images, or documents
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-3.5">
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Text</span>
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Images</span>
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Documents</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="reveal mb-24 md:mb-32 flex flex-col md:flex-row items-center md:justify-start md:pl-[calc(50%+50px)]">
+                    <div
+                        class="card-3d w-full max-w-sm bg-white/[0.04] border border-[#ffcc33]/20 rounded-2xl p-7 backdrop-blur-sm relative hover:border-[#ffcc33]/40 hover:shadow-[0_8px_40px_rgba(255,153,0,0.1)]">
+                        <span
+                            class="absolute -top-3 left-5 font-mono text-[10px] font-medium tracking-wider text-[#ff9900] bg-[#ff9900]/10 border border-[#ff9900]/25 px-2.5 py-1 rounded-full">
+                            STEP 02
+                        </span>
+                        <div
+                            class="absolute left-1/2 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-[calc(50%+160px+50px)] w-3.5 h-3.5 rounded-full bg-[#ffcc33] border-[3px] border-[#0a0c0f] shadow-[0_0_10px_rgba(255,204,51,0.5)] hidden md:block">
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-50 mt-1.5" style="letter-spacing: -0.3px;">
+                            AI Processing
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                            AWS AI services analyze and enhance your content intelligently
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-3.5">
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Bedrock</span>
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Rekognition</span>
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Translate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="reveal mb-24 md:mb-32 flex flex-col md:flex-row items-center md:justify-end md:pr-[calc(50%+50px)]">
+                    <div
+                        class="card-3d w-full max-w-sm bg-white/[0.04] border border-[#ffcc33]/20 rounded-2xl p-7 backdrop-blur-sm relative hover:border-[#ffcc33]/40 hover:shadow-[0_8px_40px_rgba(255,153,0,0.1)]">
+                        <span
+                            class="absolute -top-3 left-5 font-mono text-[10px] font-medium tracking-wider text-[#ff9900] bg-[#ff9900]/10 border border-[#ff9900]/25 px-2.5 py-1 rounded-full">
+                            STEP 03
+                        </span>
+                        <div
+                            class="absolute left-1/2 md:left-auto md:right-0 top-1/2 -translate-y-1/2 md:translate-x-[calc(50%+160px+50px)] w-3.5 h-3.5 rounded-full bg-[#ffcc33] border-[3px] border-[#0a0c0f] shadow-[0_0_10px_rgba(255,204,51,0.5)] hidden md:block">
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-50 mt-1.5" style="letter-spacing: -0.3px;">
+                            Content Evolution
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                            Transform content into multiple formats and languages automatically
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-3.5">
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Multi-format</span>
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Multi-lingual</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="reveal flex flex-col md:flex-row items-center md:justify-start md:pl-[calc(50%+50px)]">
+                    <div
+                        class="card-3d w-full max-w-sm bg-white/[0.04] border border-[#ffcc33]/20 rounded-2xl p-7 backdrop-blur-sm relative hover:border-[#ffcc33]/40 hover:shadow-[0_8px_40px_rgba(255,153,0,0.1)]">
+                        <span
+                            class="absolute -top-3 left-5 font-mono text-[10px] font-medium tracking-wider text-[#ff9900] bg-[#ff9900]/10 border border-[#ff9900]/25 px-2.5 py-1 rounded-full">
+                            STEP 04
+                        </span>
+                        <div
+                            class="absolute left-1/2 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-[calc(50%+160px+50px)] w-3.5 h-3.5 rounded-full bg-[#ffcc33] border-[3px] border-[#0a0c0f] shadow-[0_0_10px_rgba(255,204,51,0.5)] hidden md:block">
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-50 mt-1.5" style="letter-spacing: -0.3px;">
+                            Delivery & Analytics
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                            Export optimized content and track performance metrics
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-3.5">
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Export</span>
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Analytics</span>
+                            <span
+                                class="font-mono text-[10px] text-[#ffcc33]/70 bg-[#ffcc33]/8 border border-[#ffcc33]/15 px-2 py-0.5 rounded">Insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="relative z-10 py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-16" style="background: linear-gradient(135deg, #ff9900, #ffcc33, #ff9900); 
+                       background-size: 200% 200%; 
+                       -webkit-background-clip: text; 
+                       -webkit-text-fill-color: transparent; 
+                       background-clip: text;
+                       animation: gradientShift 3s ease-in-out infinite;
+                       letter-spacing: -0.02em;">
+                Team EvoContent
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div
+                    class="reveal card-3d bg-white/[0.04] border border-[#ffcc33]/15 rounded-2xl p-8 text-center hover:border-[#ffcc33]/30 hover:-translate-y-1 transition-all duration-300">
+                    <div
+                        class="w-20 h-20 rounded-full bg-gradient-to-br from-[#ff9900] to-[#ffcc33] mx-auto mb-5 flex items-center justify-center text-3xl font-semibold text-[#0a0c0f]">
+                        A
+                    </div>
+                    <h4 class="text-lg font-semibold text-slate-50 mb-2">Team Lead</h4>
+                    <p class="text-sm text-[#ffcc33] mb-3">AI Architect</p>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Specializes in AWS AI services and cloud architecture
+                    </p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="reveal card-3d bg-white/[0.04] border border-[#ffcc33]/15 rounded-2xl p-8 text-center hover:border-[#ffcc33]/30 hover:-translate-y-1 transition-all duration-300"
+                    style="animation-delay: 0.1s;">
+                    <div
+                        class="w-20 h-20 rounded-full bg-gradient-to-br from-[#ff9900] to-[#ffcc33] mx-auto mb-5 flex items-center justify-center text-3xl font-semibold text-[#0a0c0f]">
+                        B
+                    </div>
+                    <h4 class="text-lg font-semibold text-slate-50 mb-2">Developer</h4>
+                    <p class="text-sm text-[#ffcc33] mb-3">Full Stack Engineer</p>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Expert in building scalable web applications
+                    </p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="reveal card-3d bg-white/[0.04] border border-[#ffcc33]/15 rounded-2xl p-8 text-center hover:border-[#ffcc33]/30 hover:-translate-y-1 transition-all duration-300"
+                    style="animation-delay: 0.2s;">
+                    <div
+                        class="w-20 h-20 rounded-full bg-gradient-to-br from-[#ff9900] to-[#ffcc33] mx-auto mb-5 flex items-center justify-center text-3xl font-semibold text-[#0a0c0f]">
+                        C
+                    </div>
+                    <h4 class="text-lg font-semibold text-slate-50 mb-2">Designer</h4>
+                    <p class="text-sm text-[#ffcc33] mb-3">UX/UI Specialist</p>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Creates intuitive and beautiful user experiences
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-12 px-6 border-t border-slate-800/50">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-slate-500 text-sm">
+                © 2026 EvoContent AI - AWS AI for Bharat Hackathon
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
